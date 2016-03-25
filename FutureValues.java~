@@ -1,0 +1,31 @@
+public class FutureValues {
+  public static void main(String args[]) {
+    
+    System.out.println("Lab 3 written by Diego Romero");
+    System.out.println();
+    
+    System.out.println("Enter values to calculate compound interest:");
+    double pv = promptDouble("Present account value (dollars): ");
+    double ir = promptDouble("Interest rate (% percentage): ");
+    double y = promptDouble("Number of years: ");
+    double compInterest = compInterest(pv, ir, y);
+    System.out.println("Future value of the account: " + money.format(compInterest));
+    System.out.println();
+    
+    System.out.println("Enter values to calculate the future value of an annuity:");
+    double yp = promptDouble("Yearly payment (dollars): ");
+    ir = promptDouble("Interest rate (% percentage): ");
+    y = promptDouble("Number of years: ");
+    double annuity = annuity(yp, ir, y);
+    System.out.println("Future value of the annuity: " + money.format(annuity));
+  }
+  
+  //This method takes three arguments and uses them to return the final value of an account gaining compound interest.
+  private static double compInterest(double presentValue, double iRate, double years) {
+    return presentValue * Math.pow((1 + iRate/100),years);
+  }
+  
+  //This method takes three arguments and uses them to return the final value of an annuity.
+  private static double annuity(double payment, double iRate, double years){
+    return payment * ((Math.pow(1+(iRate/100),years)-1) / (iRate/100));
+  }

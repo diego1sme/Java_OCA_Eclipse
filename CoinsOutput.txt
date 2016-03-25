@@ -1,0 +1,15 @@
+Lab 1 by Diego Romero
+
+How many Quarters:
+83
+How many Dimes:
+28
+How many Nickels:
+383
+How many pennies:
+222
+The total amount of coins is:716	Which equals to:$44
+How many Coins:
+55
+Number of Quarters:2	Number of Dimes:0
+Number of nickles:1	Number of pennies:0

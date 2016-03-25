@@ -1,0 +1,12 @@
+   public class HowManyLines {
+
+      public static void main(String[] args) {
+
+         System.out.println("To err is huma\n,");
+
+         System.out.println("bu\t \to really foul things up you \need a compu\ter.");
+
+      }
+
+   }
+

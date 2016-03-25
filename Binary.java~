@@ -1,0 +1,142 @@
+import java.util.*;
+public class Binary {
+  
+  public static void main(String args[]) {
+    System.out.println("Lab 8 written by Diego Romero");
+    boolean contProgram = true;
+    
+    while(contProgram = true){
+      Scanner console = new Scanner(System.in);
+      int dec = 0;
+      boolean posInt = true;
+      
+      while(posInt = true){
+        System.out.print("Please enter a decimal number: ");
+        try{  
+          dec = console.nextInt();
+          if(dec < 0)
+            throw new Exception();
+          posInt = false;
+        } catch(Exception e) {
+          System.out.println("ERROR: Invalid input.");
+          dec = console.nextInt();
+        }
+      }
+      
+      int[] bin = convertIntToBitArray(dec);
+      String s = bitArrayToBitString(bin);
+      System.out.println(dec + " in binary is " + s + ".");
+      
+      posInt = true;
+      s = "";
+      while(posInt) {
+        System.out.print("Please enter a binary number: ");
+        s = console.nextLine();
+        if(s.length() == 0)
+          s = console.nextLine();
+        if(!isBinaryString(s))
+          System.err.println("ERROR: Invalid input.");
+        else
+          posInt = false;
+      }
+      
+      //Calculate and output the results
+      bin = bitStringToBitArray(s);
+      dec = convertBitArrayToInt(bin);
+      System.out.println(s + " in decimal is " + dec + ".");
+      
+      //Ask the user if they want to continue
+      posInt = true;
+      while(posInt) {
+        System.out.print("Would you like to continue? (yes or no): ");
+        String contStr = console.nextLine();
+        if("no".startsWith(s)) {
+          posInt = false;
+          contProgram = false;
+        }
+        else if ("yes".startsWith(contStr))
+          posInt = false;
+        else
+          System.out.println("ERROR: Invalid input.");
+      }
+    }
+    System.out.println("Thank You! Have a nice day!");
+  }
+  
+  //Converts an int to a binary array
+  private static int[] convertIntToBitArray(int val) {
+    int[] bin = new int[31];
+    int index = 0;
+    while(val != 0) {
+      if(val % 2 != 0)
+        bin[index] = 1;
+      else
+        bin[index] = 0;
+      val/=2;
+      index++;
+    }
+    return bin;
+  }
+  private static int convertBitArrayToInt(int[] bin) {
+    int increment = 1;
+    int val = 0;
+    for(int i = 0; i < bin.length; i++) {
+      if(bin[i] == 1)
+        val+=increment
+        ;
+      increment*=2;
+    }
+    return val;
+  }
+  
+  //converts a bit String into an int array
+  private static int[] bitStringToBitArray(String bitString) {
+    int bLength = bitString.length();
+    int[] bitArray = new int[bLength];
+    int bIndex = bLength - 1;
+    for (int i = 0; i < bLength; i++) {
+      char c = bitString.charAt(bIndex);
+      if (c == '0') {
+        bitArray[i] = 0;
+      } else if (c == '1') {
+        bitArray[i] = 1;
+      } else {
+        throw new IllegalArgumentException
+          (bitString + " should only contain 0s and 1s");
+      }
+      bIndex--;
+    }
+    return bitArray;
+  }
+  
+  //converts an int array into a bit String
+  private static String bitArrayToBitString(int[] bitArray) {
+    int bLength = bitArray.length;
+    String bitString = "";
+    for (int i = 0; i < bLength; i++) {
+      if (bitArray[i] == 0 || bitArray[i] == 1) {
+        bitString = bitArray[i] + bitString;
+      } else {
+        throw new IllegalArgumentException
+          (Arrays.toString(bitArray) + " should only contain 0s and 1s");
+      }
+    }
+    //eliminate leading 0s
+    int firstOne = bitString.indexOf('1');
+    if (firstOne == -1) { // true if bitString is all 0s
+      bitString = "0";
+    } else {
+      bitString = bitString.substring(firstOne, bLength);
+    }
+    return bitString;
+  }
+  
+  //Determines if a string consists of only 1s and 0s
+  private static boolean isBinaryString(String testStr) {
+    for(int i = 0; i < testStr.length(); i++) {
+      if(testStr.charAt(i) != '1' && testStr.charAt(i) != '0')
+        return false;
+    }
+    return true;
+  }
+}

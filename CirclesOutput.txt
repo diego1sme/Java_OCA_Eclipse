@@ -1,0 +1,35 @@
+31
+31
+31
+Please enter coordinates and radius for a green circle:
+31
+3
+31
+Please enter coordinates and radius for a black circle:
+31
+31
+31
+The red circle is the same size as the green circle
+The green circle is the same size as the black circle
+The red circle is the same size as the black circle
+
+Red circle and Black circle intersect
+Lab 5 by Diego Romero
+Please enter coordinates and radius for a red circle:
+31
+41
+31
+Please enter coordinates and radius for a green circle:
+31
+41
+31
+Please enter coordinates and radius for a black circle:
+31
+41
+31
+The red circle is the same size as the green circle
+The green circle is the same size as the black circle
+The red circle is the same size as the black circle
+
+Red circle and Green circle intersect
+Red circle and Black circle intersect

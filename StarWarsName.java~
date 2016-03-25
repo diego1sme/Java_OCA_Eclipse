@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class StarWarsName{
+  
+  Scanner console = new Scanner(System.in);
+  
+  public static void main(String [] args){
+    System.out.println("Enter your first name");
+    String first = console.nextLine();
+    
+    
+  }
+}

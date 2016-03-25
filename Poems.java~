@@ -1,0 +1,11 @@
+class poems{
+  
+  public static void main(String [] args) {
+    System.out.println("Lab 1 by Diego Romero\n");
+    maryHadALittle();
+  }
+  public static maryHadALittle(){
+    System.out.println("Mary Had A Little Lamb\n");
+    System.out.println("----------------------");
+  }
+}

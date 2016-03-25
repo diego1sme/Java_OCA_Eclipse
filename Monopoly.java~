@@ -1,0 +1,12 @@
+import java.util.*;
+public class Monopoly
+{
+  public static void main (String[]args)
+  {
+  System.out.println("Science");
+  for(int i = 0; i < 7;i++)
+  {
+   System.out.println("100 200 300 400 500 600 700"); 
+  }
+  }
+}

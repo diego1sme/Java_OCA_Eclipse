@@ -1,0 +1,18 @@
+public class loop{
+  public static void main(String [] args){
+    block(5);
+    javablock();
+    block(3);
+    javablock();
+    block(8);
+  }
+  public static void block(int g){
+    System.out.println(g);
+    System.out.println("+-------+");
+    System.out.println("|       |");
+    System.out.println("+-------+");
+  }
+  public static void javablock(){
+    System.out.println("| java  |");
+  }
+}

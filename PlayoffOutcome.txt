@@ -1,0 +1,23 @@
+Lab 6 written by Diego Romero
+Please enter the percentage chance team 1 will win :31
+
+Team 1 playoffs won: 2
+Team 2 playoffs won: 12
+Team 2 won the championship!
+
+Lab 6 written by Diego Romero
+Please enter the percentage chance team 1 will win :52
+
+Team 1 playoffs won: 38
+Team 2 playoffs won: 28
+Team 1 won the championship!
+
+Lab 6 written by Diego Romero
+Please enter the percentage chance team 1 will win :-4
+Error: -4 is not between 0 and 100.
+Please enter the percentage chance team 1 will win :4
+
+Team 1 playoffs won: 0
+Team 2 playoffs won: 10
+Team 2 won the championship!
+

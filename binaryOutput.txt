@@ -1,0 +1,8 @@
+Lab 8 written by Diego Romero
+Please enter a decimal number: 12
+Please enter a decimal number: 31
+Please enter a decimal number: 2.2
+Try Again.
+Lab 8 written by Diego Romero
+Please enter a decimal number: sef
+Try Again.

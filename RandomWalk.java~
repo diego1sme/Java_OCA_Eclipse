@@ -1,0 +1,25 @@
+import java.util.*;
+import java.awt.*;
+public class RandomWalk{
+  
+  public static final Scanner console = new Scanner(System.in);
+  
+  public static void main(String [] args){
+    System.out.println("Lab 7 by Diego Romero");
+    Random rand = new Random();
+    
+    System.out.println("Enter the radius of a circle from 50 to 400");
+    int answer = console.nextInt();
+    
+    while(!(answer >= 50 && answer <=400)){
+      System.out.println("Enter another radius");
+      answer = console.nextInt();
+    }
+    
+    DrawingPanel panel = new DrawingPanel(400,400);
+    Graphics g = panel.getGraphics();
+    
+    g.drawOval(0,0,answer,answer);
+  
+  }
+}

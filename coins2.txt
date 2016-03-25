@@ -1,0 +1,15 @@
+Lab 1 by Diego Romero
+
+How many Quarters:
+1
+How many Dimes:
+1
+How many Nickels:
+1
+How many pennies:
+1
+The total amount of coins is:4	Which equals to:$0.41
+How many Coins:
+43
+Number of Quarters:1	Number of Dimes:1
+Number of nickles:1	Number of pennies:3

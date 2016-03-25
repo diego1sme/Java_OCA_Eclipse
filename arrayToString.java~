@@ -1,0 +1,7 @@
+public class arrayToString{
+  public static void main(String [] args){
+    int [] num = {4,5,4,5};
+    String s = Arrays.toString(num);
+    System.out.println(s);
+  }
+}

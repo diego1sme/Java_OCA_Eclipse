@@ -1,0 +1,19 @@
+Lab 3 written by Diego Romero
+
+Enter values to calculate compound interest:
+Present account Value in dollars:
+13
+Present account Value in dollars:
+13
+Number of years: 
+13
+Future value of the account: 63.674144341815804
+
+Enter values to calculate the future value of an annuity:
+Yearly paymernt in dollars:
+13
+Interest rate in percentage:
+13
+Number of years:
+13
+Future value of the annuity: 389.80111032166

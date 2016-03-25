@@ -1,0 +1,123 @@
+import java.awt.*;
+
+public class Project3 {
+   
+   public static final int PANEL_WIDTH = 500;
+   public static final int PANEL_HEIGHT = 400;
+   public static final int SLEEP_TIME = 50;
+   public static final int BALL_SIZE = 10;
+   public static final int INITIAL_BALL_VELOCITY_X = 4;
+   public static final int INITIAL_BALL_VELOCITY_Y = 1;
+   public static final int PADDLE_LENGTH = 50;
+   public static final int PADDLE_X = PANEL_WIDTH - 40;
+   public static final Color BALL_COLOR = Color.RED;
+   public static final Color BACKGROUND_COLOR = Color.WHITE;
+   public static final Color PADDLE_COLOR = Color.BLACK;
+   public static final int UP_ARROW = 38;
+   public static final int DOWN_ARROW = 40;
+   public static final int KEY_SPACE = ' ';
+   public static final int PADDLE_MOVE_AMOUNT = 5;
+   public static final int COMPUTER_PADDLE_X = 40;
+   public static final int COMPUTER_PADDLE_LENGTH = 50;
+   public static int ballX;
+   public static int ballY;
+   public static int ballVelocityX;
+   public static int ballVelocityY;
+   public static int paddleY;
+   
+   public static void main(String[] args) {
+      DrawingPanel panel = new DrawingPanel(PANEL_WIDTH, PANEL_HEIGHT);
+      Graphics g = panel.getGraphics( );
+      g.drawString("Project 3 written by Diego Romero",10,15);
+      ballX = PANEL_WIDTH/2;
+      ballY = PANEL_HEIGHT/2;
+      ballVelocityX = 0;
+      ballVelocityY = 0;
+      paddleY = PANEL_HEIGHT/2 - PADDLE_LENGTH/2;
+      drawBall(g,BALL_COLOR);
+      drawPaddle(g,PADDLE_COLOR);
+      startGame(panel, g);
+   }
+   
+   public static void startGame(DrawingPanel panel, Graphics g) {
+      while(true) {
+         handleKeys(panel,g);
+         moveBall(g);
+         detectHit();
+         drawPaddle(g, PADDLE_COLOR);
+         drawComputerPaddle(g,PADDLE_COLOR);
+         moveComputerPaddle(g,
+         panel.sleep(SLEEP_TIME);
+      }
+   }
+   
+   public static void drawBall(Graphics g, Color c) {
+      g.setColor(c);
+      g.fillOval(ballX-BALL_SIZE/2,ballY-BALL_SIZE/2,BALL_SIZE,BALL_SIZE);
+   }
+   
+   public static void moveBall(Graphics g) {
+      drawBall(g,BACKGROUND_COLOR);
+      ballX += ballVelocityX;
+      ballY += ballVelocityY;
+      if ((ballX > PANEL_WIDTH)  || (ballX < 0)) {
+         resetBall(g);
+      }
+      drawBall(g,BALL_COLOR);
+   }
+   
+   public static void drawPaddle(Graphics g, Color c) {
+      g.setColor(c);
+      g.drawLine(PADDLE_X,paddleY,PADDLE_X,paddleY+PADDLE_LENGTH);
+   }
+   
+   public static void handleKeys(DrawingPanel panel, Graphics g) {
+      int keyCode = panel.getKeyCode();
+      if (keyCode == UP_ARROW)
+         movePaddle(g,-PADDLE_MOVE_AMOUNT);
+      else if (keyCode == DOWN_ARROW)
+         movePaddle(g,PADDLE_MOVE_AMOUNT);
+      else if (keyCode == KEY_SPACE)
+         resetBall(g);
+   }
+   
+   public static void movePaddle(Graphics g, int amount) {
+      drawPaddle(g, BACKGROUND_COLOR);
+      paddleY += amount;
+      if (paddleY < 0)
+         paddleY = 0;
+      if (paddleY + PADDLE_LENGTH > PANEL_HEIGHT)
+         paddleY = PANEL_HEIGHT - PADDLE_LENGTH;
+      drawPaddle(g,PADDLE_COLOR);
+   }
+   public static void drawComputerPaddle(Graphics g, Color c){
+     g.setColor(c);
+     g.drawLine(40,paddleY,40,paddleY+PADDLE_LENGTH);
+   }
+   public static void moveComputerPaddle(Graphics g, Color c){
+     drawComputerPaddle(g,BACKGROUND_COLOR);
+   }
+   
+   public static void detectHit() {
+      if ((ballVelocityX > 0) &&
+          (ballY + BALL_SIZE/2 >= paddleY) &&
+          (ballY - BALL_SIZE/2 <= paddleY + PADDLE_LENGTH) &&
+          (ballX + BALL_SIZE/2 >= PADDLE_X) &&
+          (ballX - BALL_SIZE/2 <= PADDLE_X))
+         ballVelocityX = -ballVelocityX;
+      if ((ballVelocityY < 0) && 
+          (ballY - BALL_SIZE/2 <= 0))
+         ballVelocityY = -ballVelocityY;
+      else if ((ballVelocityY >0) &&
+               (ballY + BALL_SIZE/2 >= PANEL_HEIGHT))
+         ballVelocityY = -ballVelocityY;
+   }
+   
+   public static void resetBall(Graphics g) {
+      drawBall(g,BACKGROUND_COLOR);
+      ballX = PANEL_WIDTH/2;
+      ballY = PANEL_HEIGHT/2;
+      ballVelocityX = INITIAL_BALL_VELOCITY_X;
+      ballVelocityY = INITIAL_BALL_VELOCITY_Y;
+   }
+}
